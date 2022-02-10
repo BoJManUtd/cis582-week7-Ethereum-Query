@@ -24,7 +24,7 @@ def get_gas_price(tx):
     return gas_price
 
 def get_gas(tx):
-    tx = get_transaction(tx)
+    tx = w3.get_transaction_receipt(tx)
     gas = tx['gasUsed']
     return gas
 
