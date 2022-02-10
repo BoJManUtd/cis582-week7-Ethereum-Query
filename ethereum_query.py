@@ -13,7 +13,7 @@ else:
     print( "Failed to connect to Ethereum node!" )
 
 def get_transaction(tx):
-    tx = web3.eth.get_transaction(tx) 
+    tx = w3.eth.get_transaction(tx) 
     return tx
 
 # Return the gas price used by a particular transaction,
