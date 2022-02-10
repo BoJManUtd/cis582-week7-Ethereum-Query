@@ -6,11 +6,11 @@ PORT='8545'
 
 w3 = Web3(Web3.HTTPProvider('http://' + IP_ADDR + ':' + PORT))
 
-# if w3.isConnected():
-#     # This line will mess with our autograders, but might be useful when debugging
-#     print( "Connected to Ethereum node" )
-# else:
-#     print( "Failed to connect to Ethereum node!" )
+if w3.isConnected():
+    # This line will mess with our autograders, but might be useful when debugging
+    print( "Connected to Ethereum node" )
+else:
+    print( "Failed to connect to Ethereum node!" )
 
 def get_transaction(tx):
     tx = w3.eth.get_transaction(tx) 
@@ -25,13 +25,13 @@ def get_gas_price(tx):
 
 def get_gas(tx):
     tx = get_transaction(tx)
-    gas = tx['gas']
+    gas = tx['gasUsed']
     return gas
 
 def get_transaction_cost(tx):
     tx = get_transaction(tx)
     gas_price = tx['gasPrice']
-    gas = tx['gas']
+    gas = tx['gasUsed']
     tx_cost = gas_price * gas
     return tx_cost
 
